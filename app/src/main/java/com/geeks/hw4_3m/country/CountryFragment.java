@@ -33,11 +33,10 @@ public class CountryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        positionCountry(position);
-        assert getArguments() != null;
-        position = getArguments().getInt("keyForPosition");
+        position = getArguments().getInt("keyForPosition",0);
         CountryAdapter adapter = new CountryAdapter(countryList);
         binding.rvCountry.setAdapter(adapter);
+        positionCountry(position);
     }
 
     private void positionCountry(int position) {
